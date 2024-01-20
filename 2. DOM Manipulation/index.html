@@ -16,23 +16,26 @@
     </ul>
     <script>
         // Relevant link: https://youtu.be/5fb2aPlgoys?si=oOB2OYliN078Ensg first 30 minutes of the video
-
+        let ulparent = document.getElementById("subjects-taken")
         // Todo 2.1 Select the unordered list with the id "subjects-taken"
         // Relevant Link: https://dev.to/alternate_robot/dom-selectors-in-javascript-344i
-        
+        let firstListItem = document.querySelectorAll('#subjects-taken > *');
         // Checkpoint 2.1 What are the other ways to select elements in the DOM?
         // Answer: 
         
         // Todo 2.2 Set the text of the first list item to "<>"
-
+        firstListItem[0].innerText = '<>';
         // Checkpoint 3.2 What is the difference between innerText, textContent, and innerHTML. When should you use one over the other
         // Answer:
 
         // Todo 2.3 Create another list item, and add it as a child of the unordered list
         // Relevant Link: https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/How_to_create_a_DOM_tree
-
+        const newListItem = document.createElement("li");
+        newListItem.setAttribute("ID", "favorite-subject");
+        newListItem.innerText = "PE044 - Phyisical Activities Towards Health And Fitness 4" 
+        ulparent.appendChild(newListItem);
         // Todo 2.4 Set the id attribute of the list item you created to "favorite-subject". Set the class of the list item to "newly-created"
-
+        
         // Todo 2.5 Delete the second list item in the unordered list
 
         // Checkpoint 2.3 Checkpoint what is the difference between node and element
