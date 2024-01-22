@@ -23,14 +23,65 @@
                 .then(res => res.json())
                 .then(data => console.log('Page 2:', data.data));
             // Todo 4.2 Fetch the information about a single user. Display their information
-
+            fetch('https://reqres.in/api/users/2') // Fetching the first page of users
+                .then(res => res.json())
+                .then(data => console.log('Single User:', data.data));
             // Todo 4.3 Create a user
-
+            const createUserUrl = 'https://reqres.in/api/users';
+            const userData = {
+                name: 'David Joseph Cortez',
+            };
+            fetch(createUserUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Created User:', data);
+                })
+                .catch(error => console.error('Error creating user:', error));
             // Todo 4.4 Update the information of the user that you have created
+            const updateUserUrl = `https://reqres.in/api/users/`;
+
+            // Updated data for the user
+            const updatedUserData = {
+                name: 'Patrisha Marie Saguinsin',
+            };
+
+            // Fetch API PUT request to update the user
+            fetch(updateUserUrl, {
+                method: 'PATCH', // Use 'PATCH' if you only want to update specific fields
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedUserData)
+            })
+                .then(response => response.json())
+                .then(updatedData => {
+                    console.log('Updated User:', updatedData);
+                })
+                .catch(error => console.error('Error updating user:', error));
 
             // Todo 4.5 Delete the user that you have created
-        }
-        start()
+            const deleteUserUrl = `https://reqres.in/api/users/`;
+
+            // Fetch API DELETE request to delete the user
+                fetch(deleteUserUrl, {
+                    method: 'DELETE',
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('User Deleted Successfully');
+                        } else {
+                            console.error('Failed to delete user');
+                        }
+                    })
+                    .catch(error => console.error('Error deleting user:', error));
+                        }   
+                        start()
 
     </script>
 </body>
