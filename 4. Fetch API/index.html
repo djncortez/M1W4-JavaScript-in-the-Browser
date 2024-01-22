@@ -15,7 +15,13 @@
             // Relevant Link: https://www.freecodecamp.org/news/how-to-fetch-data-from-an-api-using-the-fetch-api-in-javascript/
 
             // Todo 4.1 Fetch the list of users. Outout the first and second page of users.
+            fetch('https://reqres.in/api/users?page=1') // Fetching the first page of users
+                .then(res => res.json())
+                .then(data => console.log('Page 1:', data.data));
 
+            fetch('https://reqres.in/api/users?page=2') // Fetching the second page of users
+                .then(res => res.json())
+                .then(data => console.log('Page 2:', data.data));
             // Todo 4.2 Fetch the information about a single user. Display their information
 
             // Todo 4.3 Create a user
